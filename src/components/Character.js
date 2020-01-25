@@ -6,7 +6,7 @@ const Character = props => {
 
   useEffect(() => {
     axios
-      .get(`https://rickandmortyapi.com/api/character/`)
+      .get(`https://rickandmortyapi.com/api/character/${props.match.params.id}`)
       .then(response => {
         setCharacter(response.data.results);
       })

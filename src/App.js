@@ -10,7 +10,7 @@ export default function App() {
       <Header />
       <CharacterList />
 
-      <Route exact path="/" component={CharacterList} />
+      <Route exact path="/" CharacterList={CharacterList} />
       <Route
         path="/CharacterList/:id"
         render={props => <Character {...props} />}
