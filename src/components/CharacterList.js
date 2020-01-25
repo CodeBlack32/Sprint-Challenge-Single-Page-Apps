@@ -34,7 +34,7 @@ const CharacterList = props => {
 function CharacterDetails({ character }) {
   const { name, species, status } = character;
   return (
-    <Link to={`/components/${character.id}`} className="character-card">
+    <Link to={`/CharacterList/${character.id}`} className="character-card">
       <h2>{name}</h2>
       <div className="character-species">
         Species: <em>{species}</em>

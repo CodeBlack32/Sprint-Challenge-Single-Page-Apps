@@ -2,18 +2,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Character = props => {
-  const [character, setCharacter] = useState();
+  const [character, setCharacter] = useState([]);
 
   useEffect(() => {
     axios
       .get(`https://rickandmortyapi.com/api/character/${props.match.params.id}`)
       .then(response => {
-        setCharacter(response.data.results);
+        setCharacter(response.data);
+        console.log(response.data);
       })
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  }, [props.match.params.id]);
 
   if (!character) {
     return <div>Loading Character...</div>;
