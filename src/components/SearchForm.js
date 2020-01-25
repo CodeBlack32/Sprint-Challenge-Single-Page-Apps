@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const SearchInfo = ["me", "you", "people", "dark", "poop", "games", "gums"];
-
 export default function SearchForm() {
   const [search, setSearch] = useState("");
   const [searchData, setSearchData] = useState([]);
 
   useEffect(() => {
-    const searchResults = SearchInfo.filter(CharacterData =>
+    axios
+      .get(`https://rickandmortyapi.com/api/character`)
+      .then(response => {
+        const SearchInfo = response.data.results;
+        console.log(SearchInfo);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+    const searchResults = `${SearchInfo}`.filter(CharacterData =>
       CharacterData.includes(search)
     );
     setSearchData(searchResults);
