@@ -8,9 +8,8 @@ export default function App() {
   return (
     <main>
       <Header />
-      <CharacterList />
 
-      <Route exact path="/" CharacterList={CharacterList} />
+      <Route exact path="/" component={CharacterList} />
       <Route
         path="/CharacterList/:id"
         render={props => <Character {...props} />}
