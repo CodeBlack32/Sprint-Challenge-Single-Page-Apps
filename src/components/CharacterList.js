@@ -13,7 +13,7 @@ const CharacterList = props => {
       axios
         .get(`https://rickandmortyapi.com/api/character`)
         .then(response => {
-          setCharacters(response.data);
+          setCharacters(response.data.results);
         })
         .catch(error => {
           console.error(error);
