@@ -16,7 +16,7 @@ export default function SearchForm() {
         console.error(error);
       });
 
-    const searchResults = `${SearchInfo}`.filter(CharacterData =>
+    const searchResults = SearchInfo.filter(CharacterData =>
       CharacterData.includes(search)
     );
     setSearchData(searchResults);
